@@ -22,7 +22,6 @@ body{
     padding: 10px;
     margin: 0;
     border-radius: 10px;
-
 }
 form, .formData{
     width: 380px;
@@ -69,7 +68,6 @@ input[type="submit"]{
 input[type="submit"]:active{
     box-shadow: -4px -4px 0px #8c087a;
 }
-
 .top_menu{
     background-color: #8c087a;
     border: 3px solid white;
@@ -77,18 +75,15 @@ input[type="submit"]:active{
     color: white;
     border-radius: 20px;
 }
-
 .top_menu ul{
     list-style-type: none;
     text-align: center;
     margin: 0;
 }
-
 .top_menu ul li{
     display: inline-block;
     width: 130px;
 }
-
 .top_menu ul li:hover{
     background-color: #0781b2;
 }
@@ -98,4 +93,38 @@ input[type="submit"]:active{
     text-decoration: none;
     padding: 10px 0;
     display: block;
+}
+.admin-info{
+    color: white;
+    font-size: 16px;
+    padding: 10px 0;
+}
+.admin-info a{
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+th, td{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th{
+    background-color: #8c087a;
+    color: white;
+}
+h2{
+    color: white;
+}
+
+#error {
+  color: red;
 }

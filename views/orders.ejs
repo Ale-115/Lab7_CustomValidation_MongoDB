@@ -1,37 +1,47 @@
-<%-include('layouts/header')-%>
-  <%-include('layouts/nav')-%>
-  <main>
-    <h2 style="text-align:center; color:white;">All Orders</h2>
-    <table style="width:100%; border-collapse:collapse; background:#0781b2; color:white; border-radius:10px; overflow:hidden;">
-        <thead>
-          <tr style="background:#055a7a;">
-            <th style="padding:10px; border:1px solid white;">Name</th>
-            <th style="padding:10px; border:1px solid white;">Email</th>
-            <th style="padding:10px; border:1px solid white;">Campus</th>
-            <th style="padding:10px; border:1px solid white;">Tickets</th>
-            <th style="padding:10px; border:1px solid white;">Lunch</th>
-            <th style="padding:10px; border:1px solid white;">Subtotal</th>
-            <th style="padding:10px; border:1px solid white;">Tax</th>
-            <th style="padding:10px; border:1px solid white;">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if(typeof(datax)!='undefined'){ 
-              datax.forEach((order)=>{ %>
-                <tr>
-                  <td style="padding:8px; border:1px solid white;"><%=order.name %></td>
-                  <td style="padding:8px; border:1px solid white;"><%=order.email %></td>
-                  <td style="padding:8px; border:1px solid white;"><%=order.campus %></td>
-                  <td style="padding:8px; border:1px solid white; text-align:center;"><%=order.ticket %></td>
-                  <td style="padding:8px; border:1px solid white; text-align:center;"><%=order.lunch %></td>
-                  <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.sub %></td>
-                  <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.tax %></td>
-                  <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.total %></td>
-                </tr>
-              <%})
-          }%>
-        </tbody>
-    </table>
-  </main>
+<%- include('layouts/header') -%>
+<%- include('layouts/nav') -%>
 
-  <%-include('layouts/footer')-%>
+<main>
+  <h2 style="text-align:center; color:white;">All Orders</h2>
+  <table style="width:100%; border-collapse:collapse; background:#0781b2; color:white; border-radius:10px; overflow:hidden;">
+    <thead>
+      <tr style="background:#055a7a;">
+        <th style="padding:10px; border:1px solid white;">Name</th>
+        <th style="padding:10px; border:1px solid white;">Email</th>
+        <th style="padding:10px; border:1px solid white;">Phone</th>
+        <th style="padding:10px; border:1px solid white;">Post Code</th>
+        <th style="padding:10px; border:1px solid white;">Campus</th>
+        <th style="padding:10px; border:1px solid white;">Tickets</th>
+        <th style="padding:10px; border:1px solid white;">Lunch</th>
+        <th style="padding:10px; border:1px solid white;">Subtotal</th>
+        <th style="padding:10px; border:1px solid white;">Tax</th>
+        <th style="padding:10px; border:1px solid white;">Total</th>
+        <th style="padding:10px; border:1px solid white;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (typeof(datax) != 'undefined') {
+        datax.forEach((order) => { %>
+          <tr>
+            <td style="padding:8px; border:1px solid white;"><%=order.name%></td>
+            <td style="padding:8px; border:1px solid white;"><%=order.email%></td>
+            <td style="padding:8px; border:1px solid white;"><%=order.phone%></td>
+            <td style="padding:8px; border:1px solid white;"><%=order.postcode%></td>
+            <td style="padding:8px; border:1px solid white;"><%=order.campus%></td>
+            <td style="padding:8px; border:1px solid white; text-align:center;"><%=order.ticket%></td>
+            <td style="padding:8px; border:1px solid white; text-align:center;"><%=order.lunch%></td>
+            <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.sub%></td>
+            <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.tax%></td>
+            <td style="padding:8px; border:1px solid white; text-align:right;">$<%=order.total%></td>
+            <td style="padding:8px; border:1px solid white; text-align:center;">
+              <a href="/delete/<%=order._id%>" 
+                 style="color:white; background:#c0392b; padding:4px 10px; border-radius:5px; text-decoration:none;"
+                 onclick="return confirm('Delete this order?')">Delete</a>
+            </td>
+          </tr>
+      <% }) } %>
+    </tbody>
+  </table>
+</main>
+
+<%- include('layouts/footer') -%>
